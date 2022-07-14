@@ -31,7 +31,7 @@ Routes* (examples):
 	- https://localhost:3000/${userId}/place/${placeId}
 	- https://localhost:3000/${userId}/place/edit/${placeId}
 
-* - need to make sure experience is personalized (user's data showing only for that specific user)
+(need to make sure experience is personalized (user's data showing only for that specific user))
 
 How to solve personalization?
 In order to fetch only user’s memories -> add param of the userId to the objects (memory and place to go) and then fetch the objects in the array and select those whose key "userId" === logged-in user's ID.
