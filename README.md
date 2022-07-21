@@ -36,7 +36,7 @@ Routes* (examples):
 How to solve personalization?
 In order to fetch only user’s memories -> add param of the userId to the objects (memory and place to go) and then fetch the objects in the array and select those whose key "userId" === logged-in user's ID.
 
-#### Discussion 7/20/2022
+### Discussion 7/20/2022
 
 Items covered:
 - Amee: UI Mockup and Login & Registration Screen + Backend for Registration/Login
