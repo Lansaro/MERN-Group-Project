@@ -57,3 +57,7 @@ TBDs:
 		- Build mockups and items by 7/22/22
 		- We will sync and review the updates
 		- Please don't push updates to the branch yet, before the discussion
+
+## Current Design of the App
+
+![This is an image](/Group_project.png)
