@@ -1,6 +1,6 @@
 # MERN-Group-Project
 
-## “MEMORY TRAVEL CARD”
+## “TRAVEL MEMORIES APP”
 
 Description:
 Memory Travel app has a "To-Do" style functionality, enabling users to create plans for future travels (places), see list of places visited in the past (with dates), see API data for the places to visit (flights/hotels/etc.), preview individual places and update them.
