@@ -60,4 +60,4 @@ TBDs:
 
 ## Current Design of the App
 
-![This is an image](/Group_project.png)
+![This is an image](/Group_project_wireframe2.png)
