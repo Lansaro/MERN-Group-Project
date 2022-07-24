@@ -9,8 +9,8 @@ const
 require('./config/mongoose.config')(process.env.DB_NAME);
 
 app.use(cookieParser());
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
-
+app.use(cors());
+// {credentials: true, origin: 'http://localhost:3000'}
 app.use(express.json({limit: '50mb'}), express.urlencoded({ extended: true }));
 
 require('./routes/user.routes')(app);

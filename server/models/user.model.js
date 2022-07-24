@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema ({
         type: String,
         require:[true, 'Last Name is required'],
         minlength: [2, 'Last Name must be atleast 2 characters']
-
     },
 
     email: {
@@ -34,18 +33,18 @@ const UserSchema = new mongoose.Schema ({
 
 }, {timestamps: true})
 
-UserSchema.virtual("confirmPassword")
+UserSchema.virtual('confirmPassword')
     .get(() => this._confirmPassword)
     .set((value) => (this._confirmPassword = value));
 
-UserSchema.pre("validate", function (next) {
+UserSchema.pre('validate', function (next) {
     if (this.password !== this.confirmPassword) {
-        this.invalidate("confirmPassword", "Password must match");
+        this.invalidate('confirmPassword', 'Password must match');
     }
     next();
 });
 
-UserSchema.pre("validate", function (next) {
+UserSchema.pre('validate', function (next) {
     bcrypt
         .hash(this.password, 10)
         .then((hash) => {
@@ -53,7 +52,7 @@ UserSchema.pre("validate", function (next) {
             next();
         })
         .catch((err) => {
-            console.log("INSIDE ERROR BLOCK");
+            console.log('INSIDE ERROR BLOCK');
             console.log(err);
         });
 });
