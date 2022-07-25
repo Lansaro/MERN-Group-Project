@@ -2,16 +2,21 @@ const Memory = require('../models/memory.model');
 const jwt = require('jsonwebtoken');
 
 const createMemory = (req, res) => {
-    const NewMemory = new Memory(req.body);
-    const decodedJWT = jwt.decode(req.cookies.utoken,{complete: true});
-    NewMemory.creatorUser = decodedJWT.payload.user_id;
-    NewMemory.statuses.push('In Book')
-    NewMemory.save()
-        .then(async (NewMemory) => {
-            await NewMemory.populate('creatorUser','email');
-            res.json({ Memory: NewMemory })
-        })
-        .catch(err => res.status(400).json({ message: 'Something went wrong (create)', error: err }));
+    // const NewMemory = new Memory(req.body);
+    // const decodedJWT = jwt.decode(req.cookies.utoken,{complete: true});
+    // NewMemory.creatorUser = decodedJWT.payload.user_id;
+    // NewMemory.statuses.push('In Book')
+    // NewMemory
+    //     .save()
+    //     .then(async (NewMemory) => {
+    //         await NewMemory.populate('creatorUser','email');
+    //         res.json({ Memory: NewMemory })
+    //     })
+    //     .catch(err => res.status(400).json({ message: 'Something went wrong (create)', error: err }));
+    Memory
+        .create(req.body)
+        .then((newMemory) => {res.json(newMemory)})
+        .catch((err) => res.status(400).json(err));
 }
 
 const getAllMemories = (req, res) => {

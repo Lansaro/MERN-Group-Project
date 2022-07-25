@@ -16,6 +16,7 @@ const MemorySchema = new mongoose.Schema({
     },
     completeFlag: Boolean,
     date: Date,
+    image: String,
     creatorUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
