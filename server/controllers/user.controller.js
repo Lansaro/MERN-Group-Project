@@ -1,8 +1,11 @@
-const User = require('../models/user.model');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const User = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+SECRET = process.env.JWT_SECRET
 
-const register = async (req, res) => {
+
+
+const register= async (req, res) => {
     try {
         const user = new User(req.body);
         const newUser= await user.save();
@@ -29,13 +32,14 @@ const register = async (req, res) => {
                 lastName: newUser.lastName
             }
         });
-    } catch (err){
+    } catch (e){
         console.log(err)
         res.json(err)
     }
 }
 
-const login = async (req, res) => {
+
+const login = async(req, res) => {
     const userDoc = await User.findOne({email: req.body.email});
     if (!userDoc){
         res.status(400).json({message: 'Invalid Email'})
@@ -75,11 +79,12 @@ const login = async (req, res) => {
     }
 };
 
-const logout = (req, res) => {
-    console.log('logging out');
-    res.clearCookie('userToken');
+
+const logout = (req, res) =>{
+    console.log("logging out");
+    res.clearCookie("userToken");
     res.json({
-        message:'You have successfully logged out!'
+        message:"You have successfully logged out!"
     })
 }
 
@@ -96,4 +101,10 @@ const getLoggedInUser = async (req, res) =>{
     }
 };
 
-module.exports = { register, login, logout, getLoggedInUser };
+
+module.exports = {
+    register,
+    login,
+    logout,
+    getLoggedInUser
+}
