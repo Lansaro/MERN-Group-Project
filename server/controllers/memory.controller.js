@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const createMemory = (req, res) => {
     const NewMemory = new Memory(req.body);
     const decodedJWT = jwt.decode(req.cookies.utoken,{complete: true});
-    NewMemory.creatorUser = 1;
+    NewMemory.creatorUser = decodedJWT.payload.user_id;
     NewMemory.statuses.push('In Book')
     NewMemory.save()
         .then(async (NewMemory) => {
